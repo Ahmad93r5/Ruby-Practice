@@ -8,8 +8,11 @@
 # 05 Agr same methid name hoon tu-> Purana overwrite ho jata hai
 # 06 Ek method ka doosra naam banana (BY using alias)
 # 07 Method hata dena
+# 08 method ma argument pass krna
+# 09 Nested Module
+# 10 Module.Nesting (Usecase)
+# 11 Find Constant in Ruby
 
-# 00 method ma argument pass krna
 
 # 01
 module ModuleName
@@ -94,10 +97,55 @@ module MyModule
 end
 
 
-# 00
+# 08
 #  method ma argument pass krna
 
 def FuntionName (v1, v2)
    puts "#{v1} #{v2}"
 end
-FuntionName(20, "sdfsd")
+FuntionName(20, "Ahmad")
+
+# 09
+# Nested Module
+# Agr project bohat barda ho to realed code ko 1 jaga rahkty haan
+# Name conflict sa bachna (means ka same name ki 2 classes hoon )
+
+module University
+    module Science
+      def self.welcome
+        puts "Welcome to SCience"
+      end
+    end   
+end
+
+University::Science.welcome
+
+
+
+# 10
+# Module.Nesting
+# Module.nesting returns an array of the current nested modules or classes, showing the current scope from innermost to outermost.
+module A
+  module B
+    module C
+      p Module.nesting
+    end
+  end
+end
+
+
+# 11 
+# Find Contant in ruby
+
+# Z = 10	Constant banana
+# puts Z	Current ya outer module mein Z dhoondo
+# ::Z	    Direct top-level (global) Z use karo
+
+Z = 100
+module A
+  Z = 50
+
+  module B
+    puts ::Z
+  end
+end
